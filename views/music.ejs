@@ -1,0 +1,54 @@
+<audio src="audios/earthquake.mp3" controls preload="auto" autobuffer></audio>
+
+<p><a href="#" class="trigger">Go!</a></a>
+
+<script>
+
+  var eqfeed_callback;
+
+  $(function () {
+
+    // http://earthquake.usgs.gov/earthquakes/feed/geojson/1.0/hour
+    // 
+    var fired = false;
+
+    var go = function () {
+
+      if( fired ) return;
+      fired = true;
+
+      $('audio').trigger('play');
+      setTimeout(function () {
+        $.get(window.location.origin + '/go');
+      }, 900);
+
+    };
+
+    $('.trigger').click(function (ev) {
+      ev.preventDefault();
+      go();
+    });
+
+    var quakes = [];
+
+    eqfeed_callback = function (data) {
+      if( quakes.length > 0 && quakes.length < data.features.length ) {
+        // THERE'S BEEN A FRICKING EARTHQUAKE
+        console.log("EARTHQUAKE!!");
+        go();
+      } else {
+        console.log("No quake :(");
+        quakes = data.features;
+        setTimeout(check, 500);
+      }
+    };
+
+    var check = function() {
+      $.getJSON('http://earthquake.usgs.gov/earthquakes/feed/geojsonp/all/hour?callback=?');
+    };
+
+    check();
+
+  });
+
+</script>
