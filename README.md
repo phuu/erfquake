@@ -9,10 +9,22 @@ Yep, triggered by an **earthquake**.
 Clone it.
 
 ```
-
+git clone git://github.com/phuu/erfquake.git && cd erfquake
 ```
 
-Open [`http://localhost:3000`](http://localhost:3000) in your browser, and [`http://localhost:3000`](http://localhost:3000) on as many devices as you like.
+Install it.
+
+```
+npm install
+```
+
+Run it.
+
+```
+node app.js
+```
+
+Open [`http://localhost:3000/trigger`](http://localhost:3000/trigger) in your browser, and [`http://localhost:3000`](http://localhost:3000) on as many devices as you like.
 
 Wait long enough (for an earthquake) and the light show will start – open up the console in your browser to watch it wait for an earthquake. It's normally only about 5 minutes.
 
