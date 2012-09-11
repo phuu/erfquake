@@ -9,13 +9,13 @@ Yep, triggered by an **earthquake**.
 Clone it.
 
 ```
-git clone git://github.com/phuu/erfquake.git && cd erfquake
+git clone git://github.com/phuu/erfquake.git
 ```
 
 Install it.
 
 ```
-npm install
+cd erfquake && npm install
 ```
 
 Run it.
